@@ -36,7 +36,7 @@ class Mapper<T: Decodable> {
                 return result
             }
             else {
-                let finalData = try JSONSerialization.data(withJSONObject: finalJson, options: [])
+                let finalData = try JSONSerialization.data(withJSONObject: finalJson, options: [.fragmentsAllowed])
                 return try decoder.decode(T.self, from: finalData)
             }
         }
